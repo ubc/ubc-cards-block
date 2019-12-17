@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "wp-scripts start",
+    "start": "wp-scripts start index.js editor-only.js",
     "build": "wp-scripts build"
   },
   "author": "Christy Yao",
@@ -16,6 +16,11 @@
     "classnames": "^2.2.6",
     "react-select": "^2.4.3",
     "react-transition-group": "^2.9.0",
-    "webfontloader": "^1.6.28"
+    "webfontloader": "^1.6.28",
+    "sass-loader": "^7.2.0",
+    "node-sass": "^4.0.0",
+    "postcss-loader": "^3.0.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "css-loader": "^2.1.0"
   }
 }
