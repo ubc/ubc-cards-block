@@ -4,19 +4,14 @@
 
 // Import block dependencies and components.
 import classnames from "classnames"
-import UAGB_Block_Icons from "./components/uagb-controls/block-icons"
 
 // Import icon.
 import Title from "./components/Title"
 import Description from "./components/Description"
 import CtaPositionClasses from "./classes"
-import CallToAction from "./components/CallToAction"
 import CTA from "./components/CTA"
-import CtaStyle from "./inline-styles"
 import edit from "./edit"
 import attributes from "./attributes"
-// import "./editor.css"
-// import "./style.css"
 
 const { __ } = wp.i18n
 
