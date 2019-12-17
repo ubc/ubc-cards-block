@@ -1,0 +1,21 @@
+{
+  "name": "ubc-cards-block",
+  "version": "1.0.0",
+  "description": "Cards Block for UBC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "author": "Christy Yao",
+  "license": "GPL-2.0-only",
+  "devDependencies": {
+    "@wordpress/scripts": "^5.0.1",
+    "@fonticonpicker/react-fonticonpicker": "^1.2.0",
+    "classnames": "^2.2.6",
+    "react-select": "^2.4.3",
+    "react-transition-group": "^2.9.0",
+    "webfontloader": "^1.6.28"
+  }
+}
