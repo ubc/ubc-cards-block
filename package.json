@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "wp-scripts start index.js editor-only.js",
-    "build": "wp-scripts build"
+    "build": "wp-scripts build index.js editor-only.js"
   },
   "author": "Christy Yao",
   "license": "GPL-2.0-only",
