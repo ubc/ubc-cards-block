@@ -19,12 +19,12 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
- add_action('plugins_loaded', 'ubc_cards_blocks_asset_load', 10);
+ add_action('init', 'ubc_cards_blocks_asset_load', 10);
 
  function ubc_cards_blocks_asset_load(){
      wp_register_script(
          'ubc-cards-block',
-         plugins_url( 'build/index.js', __FILE__ ),
+         plugins_url( 'build/block.js', __FILE__ ),
          array(
              'wp-blocks',
              'wp-i18n',
@@ -33,22 +33,22 @@
              'wp-plugins',
              'wp-edit-post',
          ),
-         filemtime( plugin_dir_path( __FILE__ ) . 'build/index.js'),
+         filemtime( plugin_dir_path( __FILE__ ) . 'build/block.js'),
          true
     );
 
     wp_register_style(
         'ubc-cards-editor',
-        plugins_url( '/build/editor-only.css', __FILE__ ),
+        plugins_url( '/build/block.css', __FILE__ ),
         array( 'wp-edit-blocks' ),
-        filemtime( plugin_dir_path( __FILE__ ) . 'build/editor-only.css' )
+        filemtime( plugin_dir_path( __FILE__ ) . 'build/block.css' )
     );
 
     wp_register_style(
         'ubc-cards-style',
-        plugins_url( '/build/index.css', __FILE__ ),
+        plugins_url( '/build/frontend.css', __FILE__ ),
         array('wp-editor'),
-        filemtime( plugin_dir_path( __FILE__ ) . 'build/index.css' )
+        filemtime( plugin_dir_path( __FILE__ ) . 'build/frontend.css' )
     );
 
     register_block_type( 'ubc/call-to-action', array(

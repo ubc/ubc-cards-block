@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "wp-scripts start index.js editor-only.js",
-    "build": "wp-scripts build index.js editor-only.js"
+    "start": "wp-scripts start block.js frontend.js",
+    "build": "wp-scripts build block.js frontend.js"
   },
   "author": "Christy Yao",
   "license": "GPL-2.0-only",

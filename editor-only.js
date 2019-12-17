@@ -1,1 +1,0 @@
-import './src/blocks/call-to-action/editor.scss';
