@@ -24,7 +24,7 @@
  function ubc_cards_blocks_asset_load(){
      wp_register_script(
          'ubc-cards-block',
-         plugins_url( '/build/index.js', __FILE__ ),
+         plugins_url( 'build/index.js', __FILE__ ),
          array(
              'wp-blocks',
              'wp-i18n',
@@ -39,20 +39,22 @@
 
     wp_register_style(
         'ubc-cards-editor',
-        plugins_url( '/src/editor.css', __FILE__ ),
+        plugins_url( '/build/editor-only.css', __FILE__ ),
         array( 'wp-edit-blocks' ),
-        filemtime( plugin_dir_path( __FILE__ ) . 'src/editor.css' )
+        filemtime( plugin_dir_path( __FILE__ ) . 'build/editor-only.css' )
     );
 
     wp_register_style(
         'ubc-cards-style',
-        plugins_url( '/src/style.css', __FILE__ ),
-        array( ),
-        filemtime( plugin_dir_path( __FILE__ ) . 'src/style.css' )
+        plugins_url( '/build/index.css', __FILE__ ),
+        array('wp-editor'),
+        filemtime( plugin_dir_path( __FILE__ ) . 'build/index.css' )
     );
 
-    wp_enqueue_script( 'ubc-cards-block' );
-    wp_enqueue_style( 'ubc-cards-editor' );
-    wp_enqueue_style( 'ubc-cards-style' );
+    register_block_type( 'ubc/call-to-action', array(
+        'editor_script' => 'ubc-cards-block',
+        'editor_style'  => 'ubc-cards-editor',
+        'style'         => 'ubc-cards-style'
+    ) );
  }
 
