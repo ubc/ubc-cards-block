@@ -12,6 +12,7 @@ import CtaPositionClasses from "./classes"
 import CTA from "./components/CTA"
 import edit from "./edit"
 import attributes from "./attributes"
+import { generateBackgroundStyle } from "./components/background-images"
 
 const { __ } = wp.i18n
 
@@ -46,9 +47,11 @@ registerBlockType( "ubc/call-to-action", {
 			className,
 			ctaTitle,
 			description,
+			bgImages
 		} = props.attributes
 
 		let is_cta =  <CTA attributes={props.attributes} setAttributes = "not_set" />
+		const bgStyles = generateBackgroundStyle( bgImages );
 
 		// Get description and seperator components.
 		const desc = (
@@ -123,11 +126,14 @@ registerBlockType( "ubc/call-to-action", {
 
 		return (
 			<Fragment>
-				<div className={ classnames(
-					className,
-					"uagb-cta__outer-wrap"
-				) }
-				id = { `uagb-cta-block-${block_id}` } >
+				<div
+					className={ classnames(
+						className,
+						"uagb-cta__outer-wrap"
+					) }
+					id = { `uagb-cta-block-${block_id}` }
+					style = { bgStyles }
+				>
 
 					{ ( ctaType == "all") &&
 						<Fragment>

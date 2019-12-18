@@ -242,6 +242,10 @@ const attributes = {
 		type: "number",
 		default: 5,
 	},
+	bgImages: {
+		type: "array",
+		default: [],
+	},
 }
 
 export default attributes

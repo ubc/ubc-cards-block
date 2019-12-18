@@ -4,7 +4,6 @@
 
 
 import classnames from "classnames"
-import map from "lodash/map"
 import UAGBIcon from "./components/uagb-controls/UAGBIcon.json"
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker"
 import Title from "./components/Title"
@@ -14,6 +13,7 @@ import CTA from "./components/CTA"
 import UAGB_Block_Icons from "./components/uagb-controls/block-icons"
 import CtaStyle from "./inline-styles"
 import renderSVG from "./components/uagb-controls/renderIcon"
+import { BGSettings, generateBackgroundStyle } from "./components/background-images"
 
 // Import all of our Text Options requirements.
 import TypographyControl from "./components/typography"
@@ -140,8 +140,11 @@ class UAGBCallToAction extends Component {
 			stack,
 			ctaLeftSpace,
 			ctaRightSpace,
-			ctaLinkHoverColor
+			ctaLinkHoverColor,
+			bgImages
 		} = attributes
+		
+		const bgStyles = generateBackgroundStyle( bgImages );
 
 		// Add CSS.
 		var element = document.getElementById( "uagb-cta-style-" + this.props.clientId )
@@ -604,7 +607,7 @@ class UAGBCallToAction extends Component {
 		)
 
 		const layouts = (
-			<PanelBody title={ __( "Layout" ) } initialOpen={ true }>
+			<PanelBody title={ __( "Layout" ) } initialOpen={ false }>
 				<SelectControl
 					label={ __( "Button Position" ) }
 					value={ ctaPosition }
@@ -660,6 +663,10 @@ class UAGBCallToAction extends Component {
 		// Global Controls.
 		const inspect_control = (
 			<InspectorControls>
+				<BGSettings
+					bgImages = { bgImages }
+					setAttributes = { setAttributes }
+				/>
 				{ ( ctaType !== "all" ) && ( ctaType !== "none" ) && layouts }
 				{ TypographySettings }
 				{ ctaSettings }
@@ -726,11 +733,13 @@ class UAGBCallToAction extends Component {
 				</BlockControls>
 
 				{inspect_control}
-				<div className={ classnames(
-					className,
-					"uagb-cta__outer-wrap"
-				) }
-				id = { `uagb-cta-block-${this.props.clientId}` }
+				<div
+					className={ classnames(
+						className,
+						"uagb-cta__outer-wrap"
+					) }
+					id = { `uagb-cta-block-${this.props.clientId}` }
+					style = { bgStyles }
 				>
 					{ ( ctaType == "all") &&
 							<Fragment>
