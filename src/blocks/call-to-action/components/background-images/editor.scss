@@ -16,9 +16,19 @@ $grid-gap: 5px;
         }
     }
 
+    &__preview-top{
+        flex: 0 0 100%;
+    }
+
+    &__upload{
+        padding: 0;
+        border: 0;
+    }
+
     &__preview-bottom{
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
 
         .components-button{
             padding-bottom: 0;

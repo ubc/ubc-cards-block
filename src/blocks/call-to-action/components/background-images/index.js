@@ -111,9 +111,6 @@ class BGSettings extends Component {
 						<Fragment key={ index }>
 							<div className="ubc-background-image-controll">
 								<div className="ubc-background-image-controll__preview">
-									<div className="ubc-background-image-controll__preview-top">
-										<img src={ url } alt={ `Background ${ index }` } />
-									</div>
 									<div className="ubc-background-image-controll__preview-bottom">
 										<MediaUploadCheck>
 											<MediaUpload
@@ -122,9 +119,22 @@ class BGSettings extends Component {
 												} }
 												allowedTypes={ ALLOWED_MEDIA_TYPES }
 												render={ ( { open } ) => (
-													<Button onClick={ open } isPrimary>
-														Upload Image
-													</Button>
+													<Fragment>
+														<div className="ubc-background-image-controll__preview-top">
+															<button
+																className="ubc-background-image-controll__upload"
+																onClick={ open }
+															>
+																<img
+																	src={ url }
+																	alt={ `Background ${ index }` }
+																/>
+															</button>
+														</div>
+														<Button onClick={ open } isPrimary>
+															Upload Image
+														</Button>
+													</Fragment>
 												) }
 											/>
 										</MediaUploadCheck>
