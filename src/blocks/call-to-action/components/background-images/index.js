@@ -6,7 +6,7 @@ import {
     backgroundRepeatOptions
 } from './constants';
 
-import { TrashIcon } from './icons';
+import { TrashIcon, ArrowUpIcon, ArrowDownIcon } from './icons';
 
 const { __ } = wp.i18n;
 const { Fragment, Component } = wp.element;
@@ -45,6 +45,38 @@ class BGSettings extends Component {
             bgImages: bgImages.filter( function( item, currentIndex ) {
                 return currentIndex != index;
             } )
+        } );
+    }
+
+    isFirst( index ) {
+        const { bgImages = [] } = this.props;
+        return bgImages.length > 0 && index === 0;
+    }
+
+    isLast( index ) {
+        const { bgImages = [] } = this.props;
+        return bgImages.length > 0 && index === bgImages.length - 1;
+    }
+
+    onMoveUp( index ) {
+        const { bgImages = [], setAttributes } = this.props;
+        const backgroundImage = [ ...bgImages ];
+        if( backgroundImage.length > 1 && ! this.isFirst( index ) ) {
+            [ backgroundImage[ index - 1 ], backgroundImage[ index ] ] = [ backgroundImage[ index ], backgroundImage[ index - 1 ] ];
+        }
+        setAttributes( {
+            bgImages: backgroundImage
+        } );
+    }
+
+    onMoveDown( index ) {
+        const { bgImages = [], setAttributes } = this.props;
+        const backgroundImage = [ ...bgImages ];
+        if( backgroundImage.length > 1 && ! this.isLast( index ) ) {
+            [ backgroundImage[ index ], backgroundImage[ index + 1 ] ] = [ backgroundImage[ index + 1 ], backgroundImage[ index ] ];
+        }
+        setAttributes( {
+            bgImages: backgroundImage
         } );
     }
 
@@ -102,6 +134,22 @@ class BGSettings extends Component {
                                             this.onRemoveBackground( index );
                                         } }>
                                         <TrashIcon />
+                                        </Button>
+                                        <Button
+                                            onClick={ () => {
+                                                this.onMoveUp( index );
+                                            } }
+                                            disabled={ this.isFirst( index ) }
+                                        >
+                                            <ArrowUpIcon />
+                                        </Button>
+                                        <Button
+                                            onClick={ () => {
+                                                this.onMoveDown( index );
+                                            } }
+                                            disabled={ this.isLast( index ) }
+                                        >
+                                            <ArrowDownIcon />
                                         </Button>
                                     </div>
                                 </div>
