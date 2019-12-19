@@ -532,7 +532,7 @@ class UAGBCallToAction extends Component {
 					allowReset
 				/>
 				<hr className="uagb-editor__separator" />
-				<h2>{ __( "Description" ) }</h2>
+				<h2>{ __( 'Description' ) }</h2>
 				<TypographyControl
 					label={ __( "Typography" ) }
 					attributes = { attributes }
@@ -556,53 +556,6 @@ class UAGBCallToAction extends Component {
 					onChange={ ( colorValue ) => setAttributes( { descColor: colorValue } ) }
 					allowReset
 				/>
-			</PanelBody>
-		)
-
-		// Margin Settings.
-		const marginSettings = (
-			<PanelBody title={ __( "Spacing" ) } initialOpen={ false }>
-				<RangeControl
-					label={ __( "Heading Bottom Margin" ) }
-					value={ titleSpace }
-					onChange={ ( value ) => setAttributes( { titleSpace: value } ) }
-					min={ 0 }
-					max={ 500 }
-					beforeIcon=""
-					allowReset
-				/>
-				<RangeControl
-					label={ __( "Description Bottom Margin" ) }
-					value={ descSpace }
-					onChange={ ( value ) => setAttributes( { descSpace: value } ) }
-					min={ 0 }
-					max={ 500 }
-					beforeIcon=""
-					allowReset
-				/>
-
-				{ ( textAlign === "left" && ctaPosition === "right" ) &&
-					<RangeControl
-						label={ __( "Content Left Margin" ) }
-						value={ ctaLeftSpace }
-						onChange={ ( value ) => setAttributes( { ctaLeftSpace: value } ) }
-						min={ 0 }
-						max={ 500 }
-						beforeIcon=""
-						allowReset
-					/>
-				}
-				{ ( textAlign === "right" && ctaPosition === "right" ) &&
-					<RangeControl
-						label={ __( "Content Right Margin" ) }
-						value={ ctaRightSpace }
-						onChange={ ( value ) => setAttributes( { ctaRightSpace: value } ) }
-						min={ 0 }
-						max={ 500 }
-						beforeIcon=""
-						allowReset
-					/>
-				}
 			</PanelBody>
 		)
 
@@ -663,14 +616,13 @@ class UAGBCallToAction extends Component {
 		// Global Controls.
 		const inspect_control = (
 			<InspectorControls>
+				{ ( ctaType !== "all" ) && ( ctaType !== "none" ) && layouts }
+				{ TypographySettings }
+				{ ctaSettings }
 				<BGSettings
 					bgImages = { bgImages }
 					setAttributes = { setAttributes }
 				/>
-				{ ( ctaType !== "all" ) && ( ctaType !== "none" ) && layouts }
-				{ TypographySettings }
-				{ ctaSettings }
-				{/* { marginSettings } */}
 			</InspectorControls>
 		)
 

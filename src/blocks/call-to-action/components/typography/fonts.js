@@ -891,4 +891,4 @@ fonts["Yrsa"] = {"v": ["300","regular","500","600","700",], "subset": ["latin-ex
 fonts["Zeyada"] = {"v": ["regular",], "subset": ["latin",], "weight": ["400",], "i": ["normal",]}
 fonts["Zilla Slab"] = {"v": ["300","300italic","regular","italic","500","500italic","600","600italic","700","700italic",], "subset": ["latin-ext","latin",], "weight": ["300","400","500","600","700",], "i": ["normal","italic",]}
 fonts["Zilla Slab Highlight"] = {"v": ["regular","700",], "subset": ["latin-ext","latin",], "weight": ["400","700",], "i": ["normal",]}
-export default fonts
+export default fonts;
