@@ -3,75 +3,72 @@
  */
 
 // Import block dependencies and components.
-import classnames from "classnames"
+import classnames from 'classnames';
 
 // Import icon.
-import Title from "./components/Title"
-import Description from "./components/Description"
-import CtaPositionClasses from "./classes"
-import CTA from "./components/CTA"
-import edit from "./edit"
-import attributes from "./attributes"
-import { generateBackgroundStyle } from "./components/background-images"
+import Title from './components/Title';
+import Description from './components/Description';
+import CtaPositionClasses from './classes';
+import CTA from './components/CTA';
+import edit from './edit';
+import attributes from './attributes'
+import { generateBackgroundStyle } from './components/background-images';
+import InlineStyles from './inline-styles';
 
-const { __ } = wp.i18n
+const { __ } = wp.i18n;
 
 const {
 	registerBlockType,
-} = wp.blocks
+} = wp.blocks;
 
-const {
-	RichText
-} = wp.blockEditor
+const { Fragment } = wp.element;
 
-const { Fragment } = wp.element
-
-registerBlockType( "ubc/call-to-action", {
+registerBlockType( 'ubc/call-to-action', {
 	title: 'UBC Cards Block',
 	description: 'Some description',
 	icon: 'book-alt',
 	keywords: [
-		__( "cta" ),
-		__( "call to action" ),
+		__( 'cta' ),
+		__( 'call to action' ),
 	],
 	category: 'layout',
 	attributes,
 	edit,
-	save: function( props ) {
+	save( props ) {
 		const {
 			ctaPosition,
-			block_id,
+			blockId,
 			ctaType,
 			ctaLink,
 			ctaTarget,
 			className,
 			ctaTitle,
 			description,
-			bgImages
-		} = props.attributes
+			bgImages,
+		} = props.attributes;
 
-		let is_cta =  <CTA attributes={props.attributes} setAttributes = "not_set" />
+		const isCta = <CTA attributes={ props.attributes } setAttributes="not_set" />;
 		const bgStyles = generateBackgroundStyle( bgImages );
 
 		// Get description and seperator components.
 		const desc = (
 			<Fragment>
-				{ "" !== description && <div className = "uagb-cta-text-wrap">
-					<Description attributes={props.attributes} setAttributes = "not_set"/>
+				{ '' !== description && <div className="uagb-cta-text-wrap">
+					<Description attributes={ props.attributes } setAttributes="not_set" />
 				</div>
 				}
 			</Fragment>
-		)
+		);
 
 		// Get Title components.
-		const title_text = (
+		const titleText = (
 			<Fragment>
-				{ "" !== ctaTitle && <div className = "uagb-cta__title-wrap">
-					<Title attributes={ props.attributes} setAttributes = "not_set"/>
+				{ '' !== ctaTitle && <div className="uagb-cta__title-wrap">
+					<Title attributes={ props.attributes } setAttributes="not_set" />
 				</div>
 				}
 			</Fragment>
-		)
+		);
 
 		const output = (
 			<Fragment>
@@ -82,29 +79,29 @@ registerBlockType( "ubc/call-to-action", {
 					<div className = "uagb-cta__left-right-wrap">
 
 						{ ( ctaPosition == "left") &&
-								is_cta
+								isCta
 						}
 						<div className = "uagb-cta__content">
 
 							{  ctaPosition == "above-title" &&
 								<Fragment>
-							     { is_cta }
-							     { title_text }
+							     { isCta }
+							     { titleText }
 							     { desc }
 							    </Fragment>
 							}
 
 							{ ctaPosition == "below-title"  &&
 								<Fragment>
-							     { title_text }
+							     { titleText }
 							     { desc }
-							     { is_cta }
+							     { isCta }
 							    </Fragment>
 							}
 
 							{ ( ctaPosition == "left" || ctaPosition == "right") &&
 								<Fragment>
-									{ title_text }
+									{ titleText }
 									{ desc }
 								</Fragment>
 							}
@@ -112,16 +109,16 @@ registerBlockType( "ubc/call-to-action", {
 						</div>
 
 						{ ( ctaPosition == "right") &&
-								is_cta
+								isCta
 						}
 					</div>
 				</div>
 			</Fragment>
-		)
+		);
 
-		let target =""
-		if( ctaTarget ){
-			target ="_blank"
+		let target = '';
+		if ( ctaTarget ) {
+			target = '_blank';
 		}
 
 		return (
@@ -129,13 +126,13 @@ registerBlockType( "ubc/call-to-action", {
 				<div
 					className={ classnames(
 						className,
-						"uagb-cta__outer-wrap"
+						'uagb-cta__outer-wrap'
 					) }
-					id = { `uagb-cta-block-${block_id}` }
-					style = { bgStyles }
+					id={ `ubc-cta-block-${ blockId }` }
+					style={ bgStyles }
 				>
 
-					{ ( ctaType == "all") &&
+					{ ( ctaType === 'all') &&
 						<Fragment>
 							<a href= {ctaLink} className = "uagb-cta__block-link-wrap uagb-cta__link-to-all" target={target} rel ="noopener noreferrer">
 								{output}
@@ -145,6 +142,7 @@ registerBlockType( "ubc/call-to-action", {
 					{ ( ctaType !== "all") && output }
 
 				</div>
+				<InlineStyles attributes={ props.attributes } />
 			</Fragment>
 		)
 	}
