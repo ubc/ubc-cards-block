@@ -33,19 +33,11 @@ const attributes = {
 	},
 	ctaPosition: {
 		type: 'string',
-		default: 'right',
+		default: 'below-title',
 	},
 	titleTag: {
 		type: 'string',
 		default: 'h3',
-	},
-	titleFontSize: {
-		type: 'number',
-		default: '20',
-	},
-	descFontSize: {
-		type: 'number',
-		default: '16',
 	},
 	blockId: {
 		type: 'string',
@@ -71,69 +63,29 @@ const attributes = {
 		type: 'string',
 		default: '#',
 	},
-	ctaFontSize: {
-		type: 'number',
-		default: '16',
-	},
 	contentWidth: {
 		type: 'number',
 		default: '70',
 	},
 	ctaBtnLinkColor: {
 		type: 'string',
-		default: '#333',
+		default: '#f5efe0',
 	},
 	ctaLinkHoverColor: {
 		type: 'string',
-		default: '',
+		default: '#dcd7ca',
 	},
 	ctaBgColor: {
 		type: 'string',
-		default: 'transparent',
+		default: '#000000',
 	},
 	ctaBgHoverColor: {
 		type: 'string',
-		default: 'transparent',
-	},
-	ctaBorderColor: {
-		type: 'string',
-		default: '#333',
-	},
-	ctaBorderhoverColor: {
-		type: 'string',
-		default: '',
-	},
-	ctaBorderStyle: {
-		type: 'string',
-		default: 'solid',
-	},
-	ctaBtnVertPadding: {
-		type: 'number',
-		default: 10,
-	},
-	ctaBtnHrPadding: {
-		type: 'number',
-		default: 14,
-	},
-	ctaBorderWidth: {
-		type: 'number',
-		default: 1,
-	},
-	ctaBorderRadius: {
-		type: 'number',
-		default: 0,
+		default: '#6d6d6d',
 	},
 	stack: {
 		type: 'string',
 		default: 'tablet',
-	},
-	ctaLeftSpace: {
-		type: 'number',
-		default: 5,
-	},
-	ctaRightSpace: {
-		type: 'number',
-		default: 5,
 	},
 	bgImages: {
 		type: 'array',

@@ -83,6 +83,7 @@ class BGSettings extends Component {
 		const { bgImages = [], setAttributes } = this.props;
 		return (
 			<PanelBody title={ __( 'Background Images' ) } initialOpen={ false } >
+				<h2>{ __( 'Add one or more background images for this card' ) }</h2>
 				<Button
 					isPrimary
 					onClick={ ( e ) => {

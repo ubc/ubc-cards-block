@@ -49,26 +49,15 @@ class UAGBCallToAction extends Component {
 			titleColor,
 			descColor,
 			titleTag,
-			titleFontSize,
-			descFontSize,
 			ctaPosition,
 			buttonAlign,
 			ctaType,
 			ctaText,
 			ctaLink,
 			ctaTarget,
-			ctaFontSize,
-			contentWidth,
 			ctaBtnLinkColor,
 			ctaBgHoverColor,
 			ctaBgColor,
-			ctaBtnVertPadding,
-			ctaBtnHrPadding,
-			ctaBorderStyle,
-			ctaBorderColor,
-			ctaBorderhoverColor,
-			ctaBorderWidth,
-			ctaBorderRadius,
 			stack,
 			ctaLinkHoverColor,
 			bgImages,
@@ -107,17 +96,6 @@ class UAGBCallToAction extends Component {
 							value={ ctaText }
 							onChange={ ( value ) => setAttributes( { ctaText: value } ) }
 						/>
-						<RangeControl
-							label="Font Size"
-							value={ ctaFontSize }
-							onChange={ ( fontSize ) => {
-								setAttributes( {
-									ctaFontSize: fontSize,
-								} );
-							} }
-							min={ 10 }
-							max={ 30 }
-						/>
 					</Fragment>
 				}
 				{ ( ctaType !== 'none' ) &&
@@ -133,69 +111,6 @@ class UAGBCallToAction extends Component {
 							onChange={ () => this.toggleTarget() }
 						/>
 					</Fragment>
-				}
-				{ ( ctaType === 'button' ) && (
-					<Fragment>
-						<hr className="uagb-editor__separator" />
-						<h2>{ __( 'Button Padding (px)' ) }</h2>
-						<RangeControl
-							label={ __( 'Vertical Padding' ) }
-							className={ 'uagb-margin-control' }
-							value={ ctaBtnVertPadding }
-							onChange={ ( value ) => setAttributes( { ctaBtnVertPadding: value } ) }
-							min={ 0 }
-							max={ 40 }
-							beforeIcon=""
-							allowReset
-						/>
-						<RangeControl
-							label={ __( 'Horizontal Padding' ) }
-							className={ 'uagb-margin-control' }
-							value={ ctaBtnHrPadding }
-							onChange={ ( value ) => setAttributes( { ctaBtnHrPadding: value } ) }
-							min={ 0 }
-							max={ 40 }
-							beforeIcon=""
-							allowReset
-						/>
-						<hr className="uagb-editor__separator" />
-						<h2>{ __( 'Button Border' ) }</h2>
-						<SelectControl
-							label={ __( 'Style' ) }
-							value={ ctaBorderStyle }
-							onChange={ ( value ) => setAttributes( { ctaBorderStyle: value } ) }
-							options={ [
-								{ value: 'none', label: __( 'None' ) },
-								{ value: 'solid', label: __( 'Solid' ) },
-								{ value: 'double', label: __( 'Double' ) },
-								{ value: 'dashed', label: __( 'Dashed' ) },
-								{ value: 'dotted', label: __( 'Dotted' ) },
-							] }
-						/>
-						{ ctaBorderStyle !== 'none' &&
-							<Fragment>
-								<RangeControl
-									label={ __( 'Width' ) }
-									value={ ctaBorderWidth }
-									onChange={ ( value ) => setAttributes( { ctaBorderWidth: value } ) }
-									min={ 0 }
-									max={ 10 }
-									beforeIcon=""
-									allowReset
-								/>
-								<RangeControl
-									label={ __( 'Rounded Corner' ) }
-									value={ ctaBorderRadius }
-									onChange={ ( value ) => setAttributes( { ctaBorderRadius: value } ) }
-									min={ 0 }
-									max={ 100 }
-									beforeIcon=""
-									allowReset
-								/>
-							</Fragment>
-						}
-					</Fragment>
-				)
 				}
 				{ ( ctaType === 'text' ) && <TabPanel className="uagb-inspect-tabs uagb-inspect-tabs-col-2"
 					activeClass="active-tab"
@@ -270,15 +185,6 @@ class UAGBCallToAction extends Component {
 					onChange={ ( colorValue ) => setAttributes( { ctaBgColor: colorValue } ) }
 					allowReset
 				/>
-				{ ( ctaBorderStyle !== 'none' ) && <Fragment>
-					<p className="uagb-setting-label">{ __( 'Border Color' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={ { backgroundColor: ctaBorderColor } } ></span></span></p>
-					<ColorPalette
-						value={ ctaBorderColor }
-						onChange={ ( colorValue ) => setAttributes( { ctaBorderColor: colorValue } ) }
-						allowReset
-					/>
-				</Fragment>
-				}
 			</Fragment>
 		);
 
@@ -296,15 +202,6 @@ class UAGBCallToAction extends Component {
 					onChange={ ( colorValue ) => setAttributes( { ctaBgHoverColor: colorValue } ) }
 					allowReset
 				/>
-				{ ( ctaBorderStyle !== 'none' ) && <Fragment>
-					<p className="uagb-setting-label">{ __( 'Border Hover Color' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={ { backgroundColor: ctaBorderhoverColor } } ></span></span></p>
-					<ColorPalette
-						value={ ctaBorderhoverColor }
-						onChange={ ( colorValue ) => setAttributes( { ctaBorderhoverColor: colorValue } ) }
-						allowReset
-					/>
-				</Fragment>
-				}
 			</Fragment>
 		);
 
@@ -347,17 +244,6 @@ class UAGBCallToAction extends Component {
 						{ value: 'h6', label: __( 'H6' ) },
 					] }
 				/>
-				<RangeControl
-					label="Font Size"
-					value={ titleFontSize }
-					onChange={ ( fontSize ) => {
-						setAttributes( {
-							titleFontSize: fontSize,
-						} );
-					} }
-					min={ 14 }
-					max={ 50 }
-				/>
 				<p className="uagb-setting-label">{ __( 'Color' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={ { backgroundColor: titleColor } } ></span></span></p>
 				<ColorPalette
 					value={ titleColor }
@@ -366,17 +252,6 @@ class UAGBCallToAction extends Component {
 				/>
 				<hr className="uagb-editor__separator" />
 				<h2>{ __( 'Description' ) }</h2>
-				<RangeControl
-					label="Font Size"
-					value={ descFontSize }
-					onChange={ ( fontSize ) => {
-						setAttributes( {
-							descFontSize: fontSize,
-						} );
-					} }
-					min={ 10 }
-					max={ 30 }
-				/>
 				<p className="uagb-setting-label">{ __( 'Color' ) }<span className="components-base-control__label"><span className="component-color-indicator" style={ { backgroundColor: descColor } } ></span></span></p>
 				<ColorPalette
 					value={ descColor }
