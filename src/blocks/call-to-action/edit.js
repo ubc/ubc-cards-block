@@ -433,22 +433,6 @@ class UAGBCallToAction extends Component {
 					/>
 				}
 
-				{ ( ctaType === 'text' || ctaType === 'button' ) &&
-					<Fragment>
-						{ ctaPosition === 'right' &&
-							<RangeControl
-								label={ __( 'Content Width (%)' ) }
-								value={ contentWidth }
-								onChange={ ( value ) => setAttributes( { contentWidth: value } ) }
-								min={ 0 }
-								max={ 100 }
-								initialPosition={ 70 }
-								allowReset
-							/>
-						}
-					</Fragment>
-				}
-
 				{ ( ctaPosition && ctaPosition === 'right' ) && <SelectControl
 					label={ __( 'Verticle Alignment' ) }
 					value={ buttonAlign }
@@ -550,7 +534,10 @@ class UAGBCallToAction extends Component {
 					}
 					{ ( ctaType !== 'all' ) && output }
 				</div>
-				<InlineStyles attributes={ attributes } />
+				<InlineStyles attributes={ {
+					...attributes,
+					blockId: this.props.clientId,
+				} } />
 			</Fragment>
 		);
 	}
