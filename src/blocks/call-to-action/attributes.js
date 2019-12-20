@@ -69,15 +69,15 @@ const attributes = {
 	},
 	ctaBtnLinkColor: {
 		type: 'string',
-		default: '#f5efe0',
+		default: '#000000',
 	},
 	ctaLinkHoverColor: {
 		type: 'string',
-		default: '#dcd7ca',
+		default: '#000000',
 	},
 	ctaBgColor: {
 		type: 'string',
-		default: '#000000',
+		default: '#cd2653',
 	},
 	ctaBgHoverColor: {
 		type: 'string',
