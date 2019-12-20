@@ -77,11 +77,11 @@ const attributes = {
 	},
 	ctaBgColor: {
 		type: 'string',
-		default: '#cd2653',
+		default: '#EEEEEE',
 	},
 	ctaBgHoverColor: {
 		type: 'string',
-		default: '#6d6d6d',
+		default: '#8ED1FC',
 	},
 	stack: {
 		type: 'string',
