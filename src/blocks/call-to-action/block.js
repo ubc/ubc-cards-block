@@ -24,9 +24,9 @@ const {
 const { Fragment } = wp.element;
 
 registerBlockType( 'ubc/call-to-action', {
-	title: 'UBC Cards Block',
-	description: 'Some description',
-	icon: 'book-alt',
+	title: 'UBC Card Block',
+	description: 'A title, brief description, a button, and optional background images for you to display a brief overview of your content',
+	icon: 'feedback',
 	keywords: [
 		__( 'cta' ),
 		__( 'call to action' ),
