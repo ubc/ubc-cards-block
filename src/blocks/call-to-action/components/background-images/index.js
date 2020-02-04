@@ -113,32 +113,42 @@ class BGSettings extends Component {
 							<div className="ubc-background-image-controll">
 								<div className="ubc-background-image-controll__preview">
 									<div className="ubc-background-image-controll__preview-bottom">
-										<MediaUploadCheck>
-											<MediaUpload
-												onSelect={ ( media ) => {
-													this.onUpdateBackgroundProperty( index, 'url', media.url );
-												} }
-												allowedTypes={ ALLOWED_MEDIA_TYPES }
-												render={ ( { open } ) => (
-													<Fragment>
-														<div className="ubc-background-image-controll__preview-top">
-															<button
-																className="ubc-background-image-controll__upload"
-																onClick={ open }
-															>
-																<img
-																	src={ url }
-																	alt={ `Background ${ index }` }
-																/>
-															</button>
-														</div>
-														<Button onClick={ open } isPrimary>
-															Upload Image
-														</Button>
-													</Fragment>
-												) }
-											/>
-										</MediaUploadCheck>
+										{
+											wp.storybook ? (
+												<img
+													src={ url }
+													alt={ `Background ${ index }` }
+												/>
+											) : 
+											(
+												<MediaUploadCheck>
+													<MediaUpload
+														onSelect={ ( media ) => {
+															this.onUpdateBackgroundProperty( index, 'url', media.url );
+														} }
+														allowedTypes={ ALLOWED_MEDIA_TYPES }
+														render={ ( { open } ) => (
+															<Fragment>
+																<div className="ubc-background-image-controll__preview-top">
+																	<button
+																		className="ubc-background-image-controll__upload"
+																		onClick={ open }
+																	>
+																		<img
+																			src={ url }
+																			alt={ `Background ${ index }` }
+																		/>
+																	</button>
+																</div>
+																<Button onClick={ open } isPrimary>
+																	Upload Image
+																</Button>
+															</Fragment>
+														) }
+													/>
+												</MediaUploadCheck>
+											)
+										}
 										<Button onClick={ () => {
 											this.onRemoveBackground( index );
 										} }>
