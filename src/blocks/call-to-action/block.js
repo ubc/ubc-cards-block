@@ -11,7 +11,7 @@ import Description from './components/Description';
 import CtaPositionClasses from './classes';
 import CTA from './components/CTA';
 import edit from './edit';
-import attributes from './attributes'
+import attributes from './attributes';
 import { generateBackgroundStyle } from './components/background-images';
 import InlineStyles from './inline-styles';
 
