@@ -2,37 +2,34 @@
  * BLOCK: Call To Action.
  */
 
-/**
- * External dependencies
- */
+// Import block dependencies and components.
 import classnames from 'classnames';
 
-/**
- * Internal dependencies
- */
+// Import icon.
 import Title from './components/Title';
 import Description from './components/Description';
 import CtaPositionClasses from './classes';
 import CTA from './components/CTA';
 import edit from './edit';
-import attributes from './attributes';
+import attributes from './attributes'
 import { generateBackgroundStyle } from './components/background-images';
 import InlineStyles from './inline-styles';
 
-/**
- * WordPress dependencies
- */
-import { __ } from '@wordpress/i18n';
-import { registerBlockType } from '@wordpress/blocks';
-import { Fragment } from '@wordpress/element';
+const { __ } = wp.i18n;
 
-registerBlockType( 'ubc/cards', {
+const {
+	registerBlockType,
+} = wp.blocks;
+
+const { Fragment } = wp.element;
+
+registerBlockType( 'ubc/call-to-action', {
 	title: 'UBC Card Block',
 	description: 'A title, brief description, a button, and optional background images for you to display a brief overview of your content',
 	icon: 'feedback',
 	keywords: [
-		__( 'card' ),
-		__( 'cards' ),
+		__( 'cta' ),
+		__( 'call to action' ),
 	],
 	category: 'layout',
 	attributes,
@@ -75,34 +72,34 @@ registerBlockType( 'ubc/cards', {
 
 		const output = (
 			<Fragment>
-				<div className={ classnames(
-					'uagb-cta__content-wrap',
-					...CtaPositionClasses( props.attributes ),
+				<div className = { classnames(
+					"uagb-cta__content-wrap",
+					...CtaPositionClasses(  props.attributes  ),
 				) }>
-					<div className="uagb-cta__left-right-wrap">
+					<div className = "uagb-cta__left-right-wrap">
 
-						{ ( ctaPosition === 'left' ) &&
+						{ ( ctaPosition == "left") &&
 								isCta
 						}
-						<div className="uagb-cta__content">
+						<div className = "uagb-cta__content">
 
-							{ ctaPosition === 'above-title' &&
+							{  ctaPosition == "above-title" &&
 								<Fragment>
-									{ isCta }
-									{ titleText }
-									{ desc }
-								</Fragment>
+							     { isCta }
+							     { titleText }
+							     { desc }
+							    </Fragment>
 							}
 
-							{ ctaPosition === 'below-title' &&
+							{ ctaPosition == "below-title"  &&
 								<Fragment>
-									{ titleText }
-									{ desc }
-									{ isCta }
-								</Fragment>
+							     { titleText }
+							     { desc }
+							     { isCta }
+							    </Fragment>
 							}
 
-							{ ( ctaPosition === 'left' || ctaPosition === 'right' ) &&
+							{ ( ctaPosition == "left" || ctaPosition == "right") &&
 								<Fragment>
 									{ titleText }
 									{ desc }
@@ -111,7 +108,7 @@ registerBlockType( 'ubc/cards', {
 
 						</div>
 
-						{ ( ctaPosition === 'right' ) &&
+						{ ( ctaPosition == "right") &&
 								isCta
 						}
 					</div>
@@ -135,18 +132,18 @@ registerBlockType( 'ubc/cards', {
 					style={ bgStyles }
 				>
 
-					{ ( ctaType === 'all' ) &&
+					{ ( ctaType === 'all') &&
 						<Fragment>
-							<a href={ ctaLink } className="uagb-cta__block-link-wrap uagb-cta__link-to-all" target={ target } rel="noopener noreferrer">
-								{ output }
+							<a href= {ctaLink} className = "uagb-cta__block-link-wrap uagb-cta__link-to-all" target={target} rel ="noopener noreferrer">
+								{output}
 							</a>
 						</Fragment>
 					}
-					{ ( ctaType !== 'all' ) && output }
+					{ ( ctaType !== "all") && output }
 
 				</div>
 				<InlineStyles attributes={ props.attributes } />
 			</Fragment>
-		);
-	},
-} );
+		)
+	}
+} )

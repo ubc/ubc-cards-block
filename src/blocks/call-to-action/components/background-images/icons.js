@@ -1,4 +1,3 @@
-import React from 'react';
 export const ArrowUpIcon = () => {
 	return (
 		<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18"><polygon points="9,4.5 3.3,10.1 4.8,11.5 9,7.3 13.2,11.5 14.7,10.1 " /></svg>

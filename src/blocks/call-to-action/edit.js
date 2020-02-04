@@ -1,16 +1,8 @@
-import React from 'react';
 /**
  * BLOCK: Call To Action
  */
 
-/**
- * External dependencies
- */
 import classnames from 'classnames';
-
-/**
- * Internal dependencies
- */
 import Title from './components/Title';
 import Description from './components/Description';
 import CtaPositionClasses from './classes';
@@ -18,25 +10,25 @@ import CTA from './components/CTA';
 import { BGSettings, generateBackgroundStyle } from './components/background-images';
 import InlineStyles from './inline-styles';
 
-/**
- * WordPress dependencies
- */
-import { __ } from '@wordpress/i18n';
-import {
+const { __ } = wp.i18n;
+
+const {
 	AlignmentToolbar,
 	BlockControls,
 	ColorPalette,
 	InspectorControls,
-} from '@wordpress/block-editor';
-import {
+} = wp.blockEditor;
+
+const {
 	PanelBody,
 	SelectControl,
 	RangeControl,
 	TabPanel,
 	ToggleControl,
 	TextControl,
-} from '@wordpress/components';
-import { Component, Fragment } from '@wordpress/element';
+} = wp.components;
+
+const { Component, Fragment } = wp.element;
 
 class UAGBCallToAction extends Component {
 	/**

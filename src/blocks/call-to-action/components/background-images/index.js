@@ -1,6 +1,3 @@
-/**
- * Internal dependencies
- */
 import {
 	defaultAttrs,
 	sizeOptions,
@@ -11,17 +8,16 @@ import {
 
 import { TrashIcon, ArrowUpIcon, ArrowDownIcon } from './icons';
 
-/**
- * WordPress dependencies
- */
-import { __ } from '@wordpress/i18n';
-import { Fragment, Component } from '@wordpress/element';
-import {
+const { __ } = wp.i18n;
+const { Fragment, Component } = wp.element;
+
+const {
 	PanelBody,
 	SelectControl,
 	Button,
-} from '@wordpress/components';
-import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+} = wp.components;
+
+const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
 class BGSettings extends Component {
 	constructor( props ) {
@@ -111,16 +107,38 @@ class BGSettings extends Component {
 						backgroundPositionY,
 						backgroundRepeat,
 					} = bgImage;
-
+					const ALLOWED_MEDIA_TYPES = [ 'image' ];
 					return (
 						<Fragment key={ index }>
 							<div className="ubc-background-image-controll">
 								<div className="ubc-background-image-controll__preview">
 									<div className="ubc-background-image-controll__preview-bottom">
-										<img
-											src={ url }
-											alt={ `Background ${ index }` }
-										/>
+										<MediaUploadCheck>
+											<MediaUpload
+												onSelect={ ( media ) => {
+													this.onUpdateBackgroundProperty( index, 'url', media.url );
+												} }
+												allowedTypes={ ALLOWED_MEDIA_TYPES }
+												render={ ( { open } ) => (
+													<Fragment>
+														<div className="ubc-background-image-controll__preview-top">
+															<button
+																className="ubc-background-image-controll__upload"
+																onClick={ open }
+															>
+																<img
+																	src={ url }
+																	alt={ `Background ${ index }` }
+																/>
+															</button>
+														</div>
+														<Button onClick={ open } isPrimary>
+															Upload Image
+														</Button>
+													</Fragment>
+												) }
+											/>
+										</MediaUploadCheck>
 										<Button onClick={ () => {
 											this.onRemoveBackground( index );
 										} }>

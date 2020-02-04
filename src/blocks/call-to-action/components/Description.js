@@ -1,10 +1,14 @@
-/**
- * WordPress dependencies
- */
-import { RichText } from '@wordpress/block-editor';
-import { __ } from '@wordpress/i18n';
-import { createBlock } from '@wordpress/blocks';
-import { Component } from '@wordpress/element';
+const {
+	RichText,
+} = wp.blockEditor;
+
+const { __ } = wp.i18n;
+
+const {
+	createBlock,
+} = wp.blocks;
+
+const { Component } = wp.element;
 
 class Description extends Component {
 	render() {

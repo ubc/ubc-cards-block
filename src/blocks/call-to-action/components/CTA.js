@@ -1,7 +1,4 @@
-/**
- * WordPress dependencies
- */
-import { Component } from '@wordpress/element';
+const { Component } = wp.element;
 
 class CTA extends Component {
 	render() {
