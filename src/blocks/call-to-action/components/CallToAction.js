@@ -1,6 +1,12 @@
-const { __ } = wp.i18n
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
 
-import classnames from "classnames"
+/**
+ * External dependencies
+ */
+import classnames from 'classnames';
 
 class CallToAction extends React.Component {
 

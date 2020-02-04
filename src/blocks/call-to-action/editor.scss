@@ -1,32 +1,25 @@
-/**
- * #.# Editor Styles
- *
- * CSS for just Backend enqueued after style.scss
- * which makes it higher in priority.
- */
 
-@import 'components/background-images/editor.scss';
 
 .uagb-cta__content-wrap.uagb-cta__icon-position-above-title{
     text-align:center;
 }
 
-.block-editor-page #wpwrap .edit-post-visual-editor a.uagb-cta__block-link-wrap {
+.edit-post-visual-editor a.uagb-cta__block-link-wrap {
     color: inherit;
 }
 
-.block-editor-page #wpwrap .editor-rich-text .uagb-cta__title {
+.editor-rich-text .uagb-cta__title {
     margin-bottom: 10px;
 }
 
-.block-editor-page #wpwrap .uagb-cta-separator-parent {
+.uagb-cta-separator-parent {
     margin-bottom: 10px;
 }
 
-.block-editor-page #wpwrap .editor-rich-text .uagb-cta__desc {
+.editor-rich-text .uagb-cta__desc {
     margin-bottom: 10px;
 }
-.block-editor-page #wpwrap .uagb-cta__block-link i {
+.uagb-cta__block-link i {
     font-style: normal;
 }
 .wp-block-uagb-call-to-action.uagb-cta__outer-wrap a.uagb-cta__link-to-all{
